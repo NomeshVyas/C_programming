@@ -1,4 +1,5 @@
 #include<stdio.h>
+//// Binary Search through Iterative method
 
 //// Binary Search only works when Array is sorted.
 int binarySearch(int arr[], int x, int low, int high);

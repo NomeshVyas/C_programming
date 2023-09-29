@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include<stdlib.h>
 
 int main(){
     //// Pattern 10 - Inverted full pyramid of *

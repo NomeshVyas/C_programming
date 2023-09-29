@@ -1,7 +1,6 @@
 ////// Insertion in Array
 
 #include<stdio.h>
-#include<conio.h>
 
 int main() {
     int i, n, v, a[10];

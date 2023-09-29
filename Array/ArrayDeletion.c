@@ -17,7 +17,7 @@ int main() {
     for(i=p; i<n; i++)
         a[i]=a[i+1];
     
-     printf("\nArray after deletion: \n\t {  ");
+    printf("\nArray after deletion: \n\t {  ");
     for(i=0; i<n-1; i++)
         printf("%d  ", a[i]);
     printf("}");
