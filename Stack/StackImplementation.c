@@ -20,16 +20,18 @@ int isFull(struct stack *ptr){
 }
 
 int main(){
+    //// 1st Method (Using Pointer)
     struct stack *s1 = (struct stack*)malloc(sizeof(struct stack));
     s1->size = 50;
     s1->top = -1;
     s1->arr = (int*)malloc(s1->size * sizeof(int));
     
     if(isEmpty(s1))
-        printf("Empty");
+        printf("s1 is Empty");
     else
-        printf("Not Empty");
+        printf("s1 is not Empty");
 
+    //// 2nd Method
     struct stack s2;
     s2.size = 60;
     s2.top = -1;
