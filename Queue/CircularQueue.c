@@ -54,7 +54,7 @@ int rear (struct queue* queue){
 }
 
 void printQueue(struct queue* queue){
-    for(int i = queue->front; i <= queue->rear; i++)
+    for(int j = 0, i = queue->front; j < queue->size; j++, i = (i+1)%queue->capacity)
         printf("%d\t", queue->arr[i]);
     printf("\n");
 }
