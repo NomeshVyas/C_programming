@@ -19,9 +19,9 @@ struct node* createNode(int data){
 struct node* searchBST(struct node* node, int key){
     if(node == NULL)
         return NULL;
-    if(node->data == key)
+    if(key == node->data)
         return node;
-    else if(node->data > key)
+    else if(key < node->data)
         return searchBST(node->left, key);
     else 
         return searchBST(node->right, key);
