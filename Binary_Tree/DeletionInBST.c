@@ -42,33 +42,53 @@ void inOrder(struct node* node){
     }
 }
 
-struct node* inOrderPredecessor(struct node* node){
-    node->left;
-    while (node->right != NULL){
-        node = node->right;
+struct node* minVal(struct node* node){
+    struct node* temp = node;
+    if(temp == NULL)
+        return temp;
+    while(temp != NULL){
+        temp = temp->left;
     }
-    return node;
+    return temp;
 }
 
 struct node* deleteNode(struct node* node, int value){
-    struct node* iPre;
+    // base case
     if(node == NULL)
         return node;
+    if(node->data == value){
+        // 0 child
     if(node->left == NULL && node->right == NULL){
         free(node);
         return NULL;
     }
-    // searching for the node to be deleted
-    if(value < node->data)
-        node->left = deleteNode(node->left, value);
-    else if(value > node->data)
-        node->right = deleteNode(node->right, value);
-    else{
-        iPre = inOrderPredecessor(node);
-        node->data = iPre->data;
-        node->left = deleteNode(iPre->left, iPre->data);
+        // 1 child
+    if(node->left != NULL && node->right == NULL){
+        struct node* temp = node->left;
+        free(node);
+        return temp;
     }
-    return node;
+    if(node->right != NULL && node->left == NULL){
+        struct node* temp = node->right;
+        free(node);
+        return temp;
+    }
+        // 2 child
+    if(node->left != NULL && node->right != NULL){
+        int mini = minVal(node->right)->data;
+        node->data = mini;
+        node->right = deleteNode(node->right, mini);
+        return node;
+    }
+    }
+    else if (node->data > value){
+        node->left = deleteNode(node->left, value);
+        return node;
+    }
+    else {
+        node->right = deleteNode(node->right, value);
+        return node;
+    }
 }
 
 int main(){
