@@ -46,7 +46,7 @@ struct node* minVal(struct node* node){
     struct node* temp = node;
     if(temp == NULL)
         return temp;
-    while(temp != NULL){
+    while(temp->left != NULL){
         temp = temp->left;
     }
     return temp;
