@@ -58,28 +58,28 @@ struct node* deleteNode(struct node* node, int value){
         return node;
     if(node->data == value){
         // 0 child
-    if(node->left == NULL && node->right == NULL){
-        free(node);
-        return NULL;
-    }
+        if(node->left == NULL && node->right == NULL){
+            free(node);
+            return NULL;
+        }
         // 1 child
-    if(node->left != NULL && node->right == NULL){
-        struct node* temp = node->left;
-        free(node);
-        return temp;
-    }
-    if(node->right != NULL && node->left == NULL){
-        struct node* temp = node->right;
-        free(node);
-        return temp;
-    }
-        // 2 child
-    if(node->left != NULL && node->right != NULL){
-        int mini = minVal(node->right)->data;
-        node->data = mini;
-        node->right = deleteNode(node->right, mini);
-        return node;
-    }
+        if(node->left != NULL && node->right == NULL){
+            struct node* temp = node->left;
+            free(node);
+            return temp;
+        }
+        if(node->right != NULL && node->left == NULL){
+            struct node* temp = node->right;
+            free(node);
+            return temp;
+        }
+            // 2 child
+        if(node->left != NULL && node->right != NULL){
+            int mini = minVal(node->right)->data;
+            node->data = mini;
+            node->right = deleteNode(node->right, mini);
+            return node;
+        }
     }
     else if (node->data > value){
         node->left = deleteNode(node->left, value);
@@ -107,6 +107,7 @@ int main(){
 
     inOrder(b0);
     deleteNode(b0, 15);
+    printf("\n");
     inOrder(b0);
     return 0;
 }

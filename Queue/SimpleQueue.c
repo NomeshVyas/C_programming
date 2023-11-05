@@ -17,6 +17,7 @@ struct queue * createQueue(int size){
 
 int isEmpty(struct queue* queue){
     return (queue->rear == -1);
+    // return (queue->rear == -1 || queue->front > queue->rear);
 }
 
 int isFull(struct queue* queue){
@@ -35,7 +36,6 @@ int dequeue(struct queue* queue){
     if(isEmpty(queue))
         return INT_MIN;
     return queue->arr[queue->front++];
-
 }
 
 int front(struct queue* queue){
@@ -56,21 +56,21 @@ void printQueue(struct queue* queue){
     printf("\n");
 }
 
-int main(){
-    struct queue* q = createQueue(10);
+// int main(){
+//     struct queue* q = createQueue(10);
 
-    enqueue(q, 10);
-    enqueue(q, 20);
-    enqueue(q, 30);
-    enqueue(q, 40);
-    enqueue(q, 50);
+//     enqueue(q, 10);
+//     enqueue(q, 20);
+//     enqueue(q, 30);
+//     enqueue(q, 40);
+//     enqueue(q, 50);
 
-    printQueue(q);
+//     printQueue(q);
     
-    dequeue(q);
-    printQueue(q);
+//     dequeue(q);
+//     printQueue(q);
     
-    printf("\nFront: %d", front(q));
-    printf("\nRear: %d", rear(q));
-    return 0;
-}
+//     printf("\nFront: %d", front(q));
+//     printf("\nRear: %d", rear(q));
+//     return 0;
+// }

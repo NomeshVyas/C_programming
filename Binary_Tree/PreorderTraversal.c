@@ -16,7 +16,7 @@ struct node* createNode(int data){
 }
 
 void preOrder (struct node* node){
-    if(node->data != NULL){
+    if(node != NULL){
         printf("%d\t", node->data);
         preOrder(node->left);
         preOrder(node->right);
