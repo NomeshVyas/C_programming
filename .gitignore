@@ -1,1 +1,6 @@
 a.exe
+.vscode
+build
+LinkedList.exe
+DoublyLinkedList.exe
+CircularLinkedList.exe
