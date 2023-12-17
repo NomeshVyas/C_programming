@@ -17,15 +17,11 @@ struct stack* createStack(int size){
 }
 
 int isFull(struct stack * stack){
-    if(stack->top == stack->size-1)
-        return 1;
-    return 0;
+    return (stack->top == stack->size-1);
 }
 
 int isEmpty(struct stack * stack){
-    if(stack->top == -1)
-        return 1;
-    return 0;
+    return (stack->top == -1);
 }
 
 void push(struct stack* stack, int item){
@@ -33,7 +29,6 @@ void push(struct stack* stack, int item){
         printf("Stack Overflow");
         return;
     }
-    // stack->top++;
     stack->arr[++stack->top] = item;
 }
 
@@ -42,7 +37,6 @@ int pop(struct stack* stack){
         printf(" Underflow ");
         return INT_MIN;
     }
-    // stack->top--;
     return stack->arr[stack->top--];
 }
 
